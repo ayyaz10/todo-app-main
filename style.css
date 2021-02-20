@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+    /* width: 552px; */
+    margin: 0 auto;
+  
+}
+
+.background {
+    width: 100%;
+    background-image: url('/images/bg-desktop-dark.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 50px 100px 50px 100px;
+}
+
+.heading_row {
+    max-width: 552px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading_row > h1 {
+    font-size: 32px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.625rem;
+}
+
+.todo_input {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.todo_input > input[type="text"] {
+    min-width: 552px;
+    background-color: hsl(235, 24%, 19%);
+    color: hsl(234, 39%, 85%);
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 12px;
+}
