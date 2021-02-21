@@ -91,9 +91,6 @@
 
 .todo > label::before {
     content: "";
-    background: url("/images/icon-check.svg");
-    background-position: center;
-    background-repeat: no-repeat;
     width: 20px;
     height: 20px;
     position: absolute;
@@ -105,17 +102,26 @@
 
 input[type="checkbox"]:checked + label::before {
     transform: scale(1) rotate(0deg);
+    background: url("/images/icon-check.svg"), linear-gradient(to bottom, rgb(119, 182, 233) 20%,rgb(182, 126, 184));
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+
 }
 
 .todo > label::after {
     content: "";
-    border: 1px solid hsl(233, 14%, 35%);
-    width: 22px;
-    height: 22px;
+    border: 1px solid hsl(231, 12%, 21%);
+    width: 20px;
+    height: 20px;
     position: absolute;
     left: -45.6px;
     top: -6px;
     border-radius: 50%;
+}
+
+.todo > label:hover::after {
+    border: 1px solid rgb(182, 126, 184);
 }
 
 .todo > input, .todo > label {
