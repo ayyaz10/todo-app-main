@@ -5,12 +5,6 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.container {
-    /* width: 552px; */
-    /* margin: 0 auto; */
-  
-}
-
 .background {
     width: 100%;
     background-image: url('/images/bg-desktop-dark.jpg');
@@ -58,6 +52,7 @@
     position: relative;
     background-color: hsl(235, 21%, 11%);
     height: 70vh;
+    /* padding: 0px 150px 0px 150px; */
 }
 
 .todo_list {
@@ -96,17 +91,19 @@
     position: absolute;
     left: -44px;
     top: -4px;
-    transform: scale(0) rotateZ(180deg);
+    transform: scale(0) rotateZ(180deg); 
     transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
 }
 
+input[type="checkbox"]:checked ~ label {
+    text-decoration: line-through;
+}
 input[type="checkbox"]:checked + label::before {
     transform: scale(1) rotate(0deg);
     background: url("/images/icon-check.svg"), linear-gradient(to bottom, rgb(119, 182, 233) 20%,rgb(182, 126, 184));
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
-
 }
 
 .todo > label::after {
@@ -160,7 +157,6 @@ input[type="checkbox"]:checked + label::before {
     flex: 1;
 }
 
-
 .todo_status {
     flex: 2;
 }
@@ -169,4 +165,50 @@ input[type="checkbox"]:checked + label::before {
     font-size: 15px;
     margin-left: 10px;
     line-height: 1.5;
+}
+
+.todo_status > span:hover, .todo_footer_row > span:last-child:hover  {
+    color: hsl(236, 33%, 92%);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .heading_row {
+        max-width: 100%;
+    }
+
+    .todo_input > input[type="text"] {
+        min-width: 100%;
+    }
+    
+    .todo_list {
+        max-width: calc(100% - 200px);
+    }
+}
+
+
+@media only screen and (max-width: 550px) {
+    .background {
+        padding: 70px 30px 80px 30px;
+    }
+    .heading_row {
+        max-width: 350px;
+    }
+
+    .todo_input > input[type="text"] {
+        min-width: 350px;
+    }
+    
+    .todo_list {
+        max-width: 350px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .background {
+        /* padding: 0; */
+    }
+    body {
+        /* width: 100%; */
+    }
 }
