@@ -27,7 +27,7 @@ function todoIncreaseCounter() {
     num++;
 }   
 function todoDecreaseCounter() {
-    todosContainer.children[todosContainer.children.length - 1].children[0].children[0].innerText = num-1;
+        todosContainer.children[todosContainer.children.length - 1].children[0].children[0].innerText = num - 1;
     num--;
 }
 
@@ -41,7 +41,7 @@ todoInput.addEventListener('keyup', (e)=> {
 document.body.addEventListener('click', (e)=> {
     removeTodo(e);
     addCheckClass(e);
-    showActiveTodos(e)
+    // showActiveTodos(e)
 })
 
 function removeTodo(e) {
@@ -65,16 +65,44 @@ function addCheckClass(e) {
     }
 }
 
-function showActiveTodos(e) {
-    if(e.target.classList.contains('active')) {
-        for(let i = 0; i < getTotalNumOfItems().length - 1; i++) {
-            if(e.target.parentElement.classList === 'checked') {
-                todosContainer.children.remove();
-            }
-        }
-    }
+// function showActiveTodos(e) {
+//     if(e.target.classList.contains('completed')) {
+  
+//         for(let i = 0; i < getTotalNumOfItems().length - 1; i++) {
+//             if(todosContainer.children[i].classList === 'checked') {
+//                 console.log('helo')
+//             }
+//         }
+
+//     }
+// }
+
+function isTrue(i) {
+    // return todosContainer.children[i].contains('checked');
 }
 
+const completedTasks = document.querySelector('.completed');
+const allTasks = document.querySelector('.all');
+completedTasks.addEventListener('click', ()=> {
+    for(let i = 0; i < getTotalNumOfItems().length; i++) {
+        if(todosContainer.children[i].classList.contains('checked')) {
+            todosContainer.children[i].style.display = 'none';
+            todosContainer.children[i].classList.add('completed');
+            todosContainer.children[i].classList.remove('checked');
+            todoDecreaseCounter();
+        }
+    }
+})
+
+allTasks.addEventListener('click', ()=> {
+    for(let i = 0; i < getTotalNumOfItems().length; i++) {
+        if(todosContainer.children[i].classList.contains('completed')) {
+            todosContainer.children[i].style.display = 'flex';
+            todosContainer.children[i].classList.add('checked');
+            todoIncreaseCounter();
+        }
+    }
+})
 
 
 
