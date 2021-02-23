@@ -171,6 +171,18 @@ input[type="checkbox"]:checked + label::before {
     color: hsl(236, 33%, 92%);
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.color {
+    color: hsl(220, 98%, 61%) !important;
+}
+
 @media only screen and (max-width: 768px) {
 
     .heading_row {
