@@ -23,8 +23,10 @@ function createTodo(todoText) {
 
 todoInput.addEventListener('keyup', (e)=> {
     if(e.keyCode === 13 || e.key === "Enter") {
-        createTodo(e.target.value);
-        itemsLeft.innerText = getTotalNumOfItems().length - 1;
+        if(e.target.value != "" && e.target.value != null) {
+            createTodo(e.target.value);
+            itemsLeft.innerText = getTotalNumOfItems().length - 1;
+        }
     }
 })
 
@@ -167,6 +169,3 @@ clearCompleted.addEventListener('click', ()=> {
         allTasks.classList.remove('color');
     })
 })
-
-
-
