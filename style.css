@@ -194,10 +194,16 @@ input[type="checkbox"]:checked + label::before {
     }
     
     .todo_list {
-        max-width: calc(100% - 200px);
+        min-width: 122%;
+        /* max-width: calc(100% - 200px); */
     }
 }
 
+@media only screen and (max-width: 680px) { 
+    .todo_list {
+        min-width: 133%;
+    }
+}
 
 @media only screen and (max-width: 550px) {
     .background {
@@ -212,15 +218,12 @@ input[type="checkbox"]:checked + label::before {
     }
     
     .todo_list {
-        max-width: 350px;
+        min-width: 350px;
     }
 }
 
-@media only screen and (max-width: 375px) {
-    .background {
-        /* padding: 0; */
-    }
-    body {
-        /* width: 100%; */
+@media only screen and (max-width: 520px) {
+    .todo_list {
+        min-width: 350px;
     }
 }
