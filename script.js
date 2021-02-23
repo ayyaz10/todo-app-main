@@ -21,30 +21,16 @@ function createTodo(todoText) {
     todosContainer.prepend(div);
 }
 
-let num = 0;
-function todoIncreaseCounter() {
-    todosContainer.children[todosContainer.children.length - 1].children[0].children[0].innerText = num+1;
-    num++;
-}   
-function todoDecreaseCounter() {
-    // if(num >= 0) {
-        todosContainer.children[todosContainer.children.length - 1].children[0].children[0].innerText = num - 1;
-    // }
-    num--;
-}
-
 todoInput.addEventListener('keyup', (e)=> {
     if(e.keyCode === 13 || e.key === "Enter") {
         createTodo(e.target.value);
-        todoIncreaseCounter();
+        itemsLeft.innerText = getTotalNumOfItems().length - 1;
     }
 })
 
 document.body.addEventListener('click', (e)=> {
     removeTodo(e);
     addCheckClass(e);
-
-    // showActiveTodos(e)
 })
 
 function addCheckClass(e) {
@@ -66,44 +52,13 @@ function addCheckClass(e) {
 function removeTodo(e) {
     if(e.target.classList.contains('delete-item')) {
         e.target.parentElement.remove();
-        todoDecreaseCounter();
+        itemsLeft.innerText = getTotalNumOfItems().length - 1;
     }
 }
 
 function getTotalNumOfItems(){
     return todosContainer.children;
 }
-// const 
-// console.log(getTotalNumOfItems())
-
-// console.log()
-
-// function addCheckClass(e) {
-//     for(let i = 0; i < getTotalNumOfItems().length-1; i++) {
-//         if(e.target.classList.contains('todoCheckbox')) {
-//             if (todosContainer.children[i].children[0].checked) {
-//                 e.target.parentElement.classList.add('checked');
-//                 e.target.parentElement.classList.remove('active');
-
-//             } else if (e.target.classList.contains('todoCheckbox') && todosContainer.children[i].classList.contains('checked')) {
-//                 e.target.parentElement.classList.remove('checked');
-//                 e.target.parentElement.classList.add('active');
-//             }
-//         }
-//     }
-// }
-
-// function showActiveTodos(e) {
-//     if(e.target.classList.contains('completed')) {
-  
-//         for(let i = 0; i < getTotalNumOfItems().length - 1; i++) {
-//             if(todosContainer.children[i].classList === 'checked') {
-//                 console.log('helo')
-//             }
-//         }
-
-//     }
-// }
 
 function checkedItemsCount() {
     let num = 0;
@@ -125,15 +80,6 @@ function activeItemsCount() {
     return num;
 }
 
-// function allItemsCount() {
-//     let num = 0;
-//     for(let i = 0; i < getTotalNumOfItems().length - 1; i++) {
-//         if(!getTotalNumOfItems()[i].children[0].checked) {
-//             num++;
-//         }
-//     }
-//     return num;
-// }
 
 const completedTasks = document.querySelector('.completed');
 const allTasks = document.querySelector('.all');
@@ -220,7 +166,6 @@ clearCompleted.addEventListener('click', ()=> {
         completedTasks.classList.remove('color');
         allTasks.classList.remove('color');
     })
-    
 })
 
 
