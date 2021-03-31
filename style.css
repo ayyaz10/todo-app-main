@@ -7,7 +7,7 @@
 
 .background {
     width: 100%;
-    background-image: url('/images/bg-desktop-dark.jpg');
+    background-image: url('./images/bg-desktop-dark.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -100,7 +100,7 @@ input[type="checkbox"]:checked ~ label {
 }
 input[type="checkbox"]:checked + label::before {
     transform: scale(1) rotate(0deg);
-    background: url("/images/icon-check.svg"), linear-gradient(to bottom, rgb(119, 182, 233) 20%,rgb(182, 126, 184));
+    background: url("./images/icon-check.svg"), linear-gradient(to bottom, rgb(119, 182, 233) 20%,rgb(182, 126, 184));
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50%;
