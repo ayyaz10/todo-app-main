@@ -13,7 +13,7 @@ function createTodo(todoText) {
     input.id = num;
     label.setAttribute('for', num);
     label.append(todoText);
-    img.src = '/images/icon-cross.svg';
+    img.src = './images/icon-cross.svg';
     img.setAttribute('class', 'delete-item');
     img.alt = 'remove';
     div.setAttribute('class', 'todo active');
